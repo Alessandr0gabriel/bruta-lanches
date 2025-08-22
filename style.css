@@ -174,7 +174,24 @@ header {
 
 .card-content {
   width: 100%;
-  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  min-height: 120px; /* opcional, para manter altura */
+}
+
+.card-title,
+.card-desc,
+.card-preco {
+  text-align: left;
+  width: 100%;
+}
+
+.btn-adicionar {
+  align-self: flex-end;
+  margin-left: 0;
   margin-top: 10px;
 }
 
@@ -536,4 +553,19 @@ footer {
 
 #cardapio {
   padding-top: 0 !important;
+}
+
+.card-preco-btn-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card-preco {
+  margin-bottom: 0;
+}
+
+.btn-adicionar {
+  margin-top: 0;
 }
