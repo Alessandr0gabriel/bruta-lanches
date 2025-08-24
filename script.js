@@ -39,7 +39,7 @@ function verificarStatusLoja() {
   const diaSemana = agora.getDay();
   const hora = agora.getHours();
 
-  lojaAberta = diaSemana !== 1 && hora >= 17 && hora < 23;
+  lojaAberta = diaSemana !== 1 && hora >= 17 && hora < 23.1;
 
   if (diaSemana === 1) {
     statusEl.textContent = "🔴 Fechado às segundas";
@@ -350,3 +350,4 @@ function mostrarFooter() {
 }
 
 const quantidades = {};
+
