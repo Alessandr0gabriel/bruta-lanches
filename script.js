@@ -31,7 +31,7 @@ const precos = {
   "Bebida: Fanta Laranja ou Uva": 10.0,
 };
 
-let lojaAberta = true;
+let lojaAberta = false;
 
 function verificarStatusLoja() {
   const statusEl = document.getElementById("status-loja");
