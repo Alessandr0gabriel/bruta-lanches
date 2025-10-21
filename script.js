@@ -41,10 +41,11 @@ function verificarStatusLoja() {
 
   lojaAberta = diaSemana !== 1 && hora >= 19 && hora < 23;
 
-  if (diaSemana === 1) {
+  /*if (diaSemana === 1) {
     statusEl.textContent = "🔴 Fechado às segundas";
     statusEl.classList.add("fechada");
-  } else if (lojaAberta) {
+  }*/
+else if (lojaAberta) {
     statusEl.textContent = "🟢 Loja Aberta";
     statusEl.classList.remove("fechada");
   } else {
