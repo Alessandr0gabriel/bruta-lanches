@@ -31,8 +31,11 @@ const precos = {
   "Bebida: Fanta Laranja ou Uva": 10.0,
 };
 
+
+let lojaAberta = false;
+
 //lojaAberta = true; manter a loja aberta para teste!, = false; funciona no horario
-let lojaAberta = true;
+let modoTeste = true;
 
 function verificarStatusLoja() {
   const statusEl = document.getElementById("status-loja");
@@ -40,7 +43,15 @@ function verificarStatusLoja() {
   const diaSemana = agora.getDay();
   const hora = agora.getHours();
 
-  lojaAberta = diaSemana !== 1 && hora >= 19 && hora < 23;
+  if (!modoTeste) {
+    lojaAberta = diaSemana !== 1 && hora >= 19 && hora < 23;
+  }
+
+  if (modoTeste) {
+    statusEl.textContent = "🟢 Loja Aberta (modo teste)";
+    statusEl.classList.remove("fechada");
+    return;
+  }
 
   if (diaSemana === 1) {
     statusEl.textContent = "🔴 Fechado às segundas";
@@ -371,4 +382,5 @@ window.addEventListener("scroll", function () {
 btnScrool.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
