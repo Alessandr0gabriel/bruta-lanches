@@ -31,11 +31,9 @@ const precos = {
   "Bebida: Fanta Laranja ou Uva": 10.0,
 };
 
-
-let lojaAberta = false;
-
 //lojaAberta = true; manter a loja aberta para teste!, = false; funciona no horario
 let modoTeste = true;
+let lojaAberta = true;
 
 function verificarStatusLoja() {
   const statusEl = document.getElementById("status-loja");
@@ -382,5 +380,6 @@ window.addEventListener("scroll", function () {
 btnScrool.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
