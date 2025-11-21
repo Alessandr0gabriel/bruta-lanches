@@ -181,7 +181,7 @@ function enviarPedido(infoInicial) {
     .toFixed(2)
     .replace(`.`, `.`)}*%0A`;
 
-  const numero = `5544997014764`;
+  const numero = `falce`;
   const url = `https://wa.me/${numero}?text=${mensagem}`;
 
   // Fecha o modal e abre o WhatsApp
@@ -380,6 +380,7 @@ window.addEventListener("scroll", function () {
 btnScrool.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
 
