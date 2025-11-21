@@ -277,8 +277,16 @@ function atualizarListaPedido() {
   }
 }
 
+// NOVA FUNÇÃO PARA REMOVER ACENTOS
+function removerAcentos(texto) {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 function filtrarCardapio() {
-  const busca = document.getElementById("campoBusca").value.toLowerCase();
+  // APLICA A REMOÇÃO DE ACENTOS NO TERMO DE BUSCA
+  const busca = removerAcentos(
+    document.getElementById("campoBusca").value.toLowerCase()
+  );
 
   // Esconde o banner e o footer se houver texto na busca, mostra se estiver vazio
   if (busca.length > 0) {
@@ -293,10 +301,14 @@ function filtrarCardapio() {
   document.querySelectorAll(".card-grid").forEach((grid) => {
     let algumVisivel = false;
     grid.querySelectorAll(".card").forEach((card) => {
-      const titulo =
-        card.querySelector(".card-title")?.textContent.toLowerCase() || "";
-      const desc =
-        card.querySelector(".card-desc")?.textContent.toLowerCase() || "";
+      // APLICA A REMOÇÃO DE ACENTOS NO TÍTULO E NA DESCRIÇÃO PARA COMPARAÇÃO
+      const titulo = removerAcentos(
+        card.querySelector(".card-title")?.textContent.toLowerCase() || ""
+      );
+      const desc = removerAcentos(
+        card.querySelector(".card-desc")?.textContent.toLowerCase() || ""
+      );
+
       if (titulo.includes(busca) || desc.includes(busca)) {
         card.style.display = "";
         algumVisivel = true;
