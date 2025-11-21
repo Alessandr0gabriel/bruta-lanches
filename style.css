@@ -106,8 +106,9 @@ a {
 }
 
 .banner {
-  width: 70%;
-  height: 300px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
   display: block;
@@ -568,3 +569,4 @@ footer {
   opacity: 1;
   pointer-events: auto;
 }
+
