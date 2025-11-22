@@ -409,3 +409,34 @@ window.addEventListener("scroll", function () {
 btnScrool.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// Intercepta links do footer quando estiver em modo de teste
+document.addEventListener("DOMContentLoaded", () => {
+  const linkWhats = document.getElementById("link-whatsapp");
+  const linkInsta = document.getElementById("link-instagram");
+  const disabledMsg =
+    "Como o modo teste está ativado, esses links estão desativados.";
+
+  function handleFooterLinkClick(e, url) {
+    if (modoTeste) {
+      e.preventDefault();
+      mostrarToast(disabledMsg);
+      return;
+    }
+    // modo produção: abre o link em nova aba
+    // (permanece o comportamento padrão do anchor, mas garantimos abrir em nova aba)
+    window.open(url, "_blank");
+    e.preventDefault();
+  }
+
+  if (linkWhats) {
+    linkWhats.addEventListener("click", (e) =>
+      handleFooterLinkClick(e, "https://wa.me/44997014764")
+    );
+  }
+  if (linkInsta) {
+    linkInsta.addEventListener("click", (e) =>
+      handleFooterLinkClick(e, "https://www.instagram.com/dianeperassoli/")
+    );
+  }
+});
